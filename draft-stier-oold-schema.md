@@ -23,7 +23,7 @@ title: "Object Oriented Linked Data Schema"
 abbrev: "OO-LD Schema"
 category: info
 
-docname: draft-oo-ld-latest
+docname: draft-stier-oold-schema-latest
 submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
 number:
 date:
