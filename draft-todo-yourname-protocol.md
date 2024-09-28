@@ -19,11 +19,11 @@
 # Change the file extension to match the format (.xml for XML, etc...)
 #
 ###
-title: "TODO - Your title"
-abbrev: "TODO - Abbreviation"
+title: "Object Oriented Linked Data Schema"
+abbrev: "OO-LD Schema"
 category: info
 
-docname: draft-todo-yourname-protocol-latest
+docname: draft-oo-ld-latest
 submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
 number:
 date:
