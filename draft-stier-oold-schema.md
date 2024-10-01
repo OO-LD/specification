@@ -56,7 +56,8 @@ TODO Abstract
 The core idea is that an OO-LD document is always both a valid JSON-SCHEMA and a JSON-LD remote context ( != JSON-LD document). In this way a complete OO-LD class / schema hierarchy is consumeable by JSON-SCHEMA-only and JSON-LD-only tools while OO-LD aware tools can provide extended features on top (e.g. UI autocomplete dropdowns for string-IRI fields based e.g. on a SPARQL backend, SHACL shape or JSON-LD frame generation).
 
 A minimal example:
-~~~ text
+
+~~~ json
 {
   "@context": {
     "schema": "http://schema.org/",
