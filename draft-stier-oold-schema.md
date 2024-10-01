@@ -188,8 +188,6 @@ Interoperability considerations:: TODO
 
 Fragment identifier considerations:: TODO
 
-# References
-
 --- back
 
 # Acknowledgments
