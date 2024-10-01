@@ -85,10 +85,22 @@ Table of Contents
    string-IRI fields based e.g. on a SPARQL backend, SHACL shape or
    JSON-LD frame generation).
 
-   A minimal example: ~~~ text { "@context": { "schema":
-   "http://schema.org/", "name": "schema:name" }, "title": "Person",
-   "type": "object", "properties": { "name": { "type": "string",
-   "description": "First and Last name" } } } ~~~
+   A minimal example:
+
+   {
+     "@context": {
+       "schema": "http://schema.org/",
+       "name": "schema:name"
+     },
+     "title": "Person",
+     "type": "object",
+     "properties": {
+       "name": {
+         "type": "string",
+         "description": "First and Last name"
+       }
+     }
+   }
 
    Please note that *OO-LD schema documents MUST not be interpreted as
    JSON-LD documents* because this would apply @context on the schema
