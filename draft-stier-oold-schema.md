@@ -109,7 +109,7 @@ classDiagram
 ## JSON Document
 
 A JSON document is an information resource (series of octets) described by the application/json media type.
-OO-LD Schema is only defined over JSON documents. However, any document or memory structure that can be parsed into or processed according to the JSON Schema data model can be interpreted against a OO-LD Schema, including media types like [CBOR](#rfc7049).
+OO-LD Schema is only defined over JSON documents. However, any document or memory structure that can be parsed into or processed according to the JSON Schema data model can be interpreted against a OO-LD Schema, including media types like [CBOR](#RFC7049).
 
 ## Instance Document
 A JSON document to which a OO-LD schema is applied is known as an "instance". OO-LD Schema is defined over `application/json` or compatible documents, including media types with the `+json` structured syntax suffix. Among these, this specification defines the `application/schema-instance+json` media type which defines handling for fragments in the URI.
@@ -121,7 +121,7 @@ A OO-LD Schema document, is a JSON document used to describe an instance. A OO-L
 # Security Considerations {#security}
 
 Both schemas and instances are JSON values. As such, all security considerations
-defined in [RFC 8259](#rfc8259) apply.
+defined in [RFC 8259](#RFC8259) apply.
 
 Instances and schemas are both frequently written by untrusted third parties, to
 be deployed on public Internet servers. Implementations should take care that
@@ -160,7 +160,7 @@ Subtype name:: oold-schema+json
 Required parameters:: N/A
 
 Encoding considerations:: Encoding considerations are identical to those
-specified for the `application/json` media type. See [JSON](#rfc8259).
+specified for the `application/json` media type. See [JSON](#RFC8259).
 
 Security considerations:: See {{security}} above.
 
@@ -180,7 +180,7 @@ Subtype name:: oold-schema-instance+json
 Required parameters:: N/A
 
 Encoding considerations:: Encoding considerations are identical to those
-specified for the `application/json` media type. See [JSON](#rfc8259).
+specified for the `application/json` media type. See [JSON](#RFC8259).
 
 Security considerations:: See {{security}} above.
 
