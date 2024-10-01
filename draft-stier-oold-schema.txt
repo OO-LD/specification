@@ -70,9 +70,8 @@ Table of Contents
      4.1.  application/oold-schema+json
      4.2.  application/oold-schema-instance+json
    5.  References
-   6.  References
-     6.1.  Normative References
-     6.2.  Informative References
+     5.1.  Normative References
+     5.2.  Informative References
    Acknowledgments
    Author's Address
 
@@ -236,9 +235,7 @@ Table of Contents
 
 5.  References
 
-6.  References
-
-6.1.  Normative References
+5.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -254,7 +251,7 @@ Table of Contents
               DOI 10.17487/RFC8259, December 2017,
               <https://www.rfc-editor.org/rfc/rfc8259>.
 
-6.2.  Informative References
+5.2.  Informative References
 
    [RFC7049]  Bormann, C. and P. Hoffman, "Concise Binary Object
               Representation (CBOR)", RFC 7049, DOI 10.17487/RFC7049,
