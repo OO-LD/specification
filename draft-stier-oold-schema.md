@@ -53,7 +53,7 @@ TODO Abstract
 The core idea is that an OO-LD document is always both a valid JSON-SCHEMA and a JSON-LD remote context ( != JSON-LD document). In this way a complete OO-LD class / schema hierarchy is consumeable by JSON-SCHEMA-only and JSON-LD-only tools while OO-LD aware tools can provide extended features on top (e.g. UI autocomplete dropdowns for string-IRI fields based e.g. on a SPARQL backend, SHACL shape or JSON-LD frame generation).
 
 A minimal example:
-~~~json
+~~~ json
 {
   "@context": {
     "schema": "http://schema.org/",
@@ -72,7 +72,7 @@ A minimal example:
 
 Please note that **OO-LD schema documents MUST not be interpreted as JSON-LD documents** because this would apply `@context` on the schema itself. The motivation behind this is to have a single document so schemas can be aggregated using both the JSON-SCHEMA `$ref` and the JSON-LD remote `@context` pointing the same resource.
 
-~~~text
+~~~ text
 %%{init: {'theme': 'neutral' } }%%
 classDiagram
     class OOLD_Class_A {
