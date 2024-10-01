@@ -35,6 +35,9 @@ author:
 
 normative:
   RFC8259: # JSON
+  JSONLD:
+    title: JSON-LD 1.1
+    target: https://www.w3.org/TR/2020/REC-json-ld11-20200716/
 
 informative:
   RFC7049: # CBOR
@@ -53,7 +56,7 @@ TODO Abstract
 The core idea is that an OO-LD document is always both a valid JSON-SCHEMA and a JSON-LD remote context ( != JSON-LD document). In this way a complete OO-LD class / schema hierarchy is consumeable by JSON-SCHEMA-only and JSON-LD-only tools while OO-LD aware tools can provide extended features on top (e.g. UI autocomplete dropdowns for string-IRI fields based e.g. on a SPARQL backend, SHACL shape or JSON-LD frame generation).
 
 A minimal example:
-~~~ json
+~~~ text
 {
   "@context": {
     "schema": "http://schema.org/",
@@ -116,7 +119,7 @@ A JSON document to which a OO-LD schema is applied is known as an "instance". OO
 
 ## OO-LD Schema Document
 A OO-LD Schema document, is a JSON document used to describe an instance. A OO-LD schema SHOULD always be given the media type `application/oold-schema+json` rather than `application/oold-schema-instance+json`. The `application/oold-schema+json` media type is defined to offer a superset of the fragment identifier syntax and semantics provided by `application/oold-schema-instance+json`.
-
+A OO-LD Schema document SHOULD contain a `@context` keyword, pointing to a valid JSON-LD context definition according to [JSONLD](#JSONLD)
 
 # Security Considerations {#security}
 
