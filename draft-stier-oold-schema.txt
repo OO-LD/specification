@@ -85,7 +85,7 @@ Table of Contents
    string-IRI fields based e.g. on a SPARQL backend, SHACL shape or
    JSON-LD frame generation).
 
-   A minimal example: ~~~ json { "@context": { "schema":
+   A minimal example: ~~~ text { "@context": { "schema":
    "http://schema.org/", "name": "schema:name" }, "title": "Person",
    "type": "object", "properties": { "name": { "type": "string",
    "description": "First and Last name" } } } ~~~
@@ -156,7 +156,9 @@ Table of Contents
    application/oold-schema+json rather than application/oold-schema-
    instance+json.  The application/oold-schema+json media type is
    defined to offer a superset of the fragment identifier syntax and
-   semantics provided by application/oold-schema-instance+json.
+   semantics provided by application/oold-schema-instance+json.  A OO-LD
+   Schema document SHOULD contain a @context keyword, pointing to a
+   valid JSON-LD context definition according to [JSONLD]
 
 3.  Security Considerations
 
@@ -236,6 +238,9 @@ Table of Contents
 5.  References
 
 5.1.  Normative References
+
+   [JSONLD]   "JSON-LD 1.1", n.d.,
+              <https://www.w3.org/TR/2020/REC-json-ld11-20200716/>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,

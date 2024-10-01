@@ -1185,7 +1185,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
       </h2>
 <p id="section-1-1">The core idea is that an OO-LD document is always both a valid JSON-SCHEMA and a JSON-LD remote context ( != JSON-LD document). In this way a complete OO-LD class / schema hierarchy is consumeable by JSON-SCHEMA-only and JSON-LD-only tools while OO-LD aware tools can provide extended features on top (e.g. UI autocomplete dropdowns for string-IRI fields based e.g. on a SPARQL backend, SHACL shape or JSON-LD frame generation).<a href="#section-1-1" class="pilcrow">¶</a></p>
 <p id="section-1-2">A minimal example:
-~~~ json
+~~~ text
 {
   "@context": {
     "schema": "http://schema.org/",
@@ -1265,7 +1265,8 @@ OO-LD Schema is only defined over JSON documents. However, any document or memor
         <h3 id="name-oo-ld-schema-document">
 <a href="#section-2.3" class="section-number selfRef">2.3. </a><a href="#name-oo-ld-schema-document" class="section-name selfRef">OO-LD Schema Document</a>
         </h3>
-<p id="section-2.3-1">A OO-LD Schema document, is a JSON document used to describe an instance. A OO-LD schema <span class="bcp14">SHOULD</span> always be given the media type <code>application/oold-schema+json</code> rather than <code>application/oold-schema-instance+json</code>. The <code>application/oold-schema+json</code> media type is defined to offer a superset of the fragment identifier syntax and semantics provided by <code>application/oold-schema-instance+json</code>.<a href="#section-2.3-1" class="pilcrow">¶</a></p>
+<p id="section-2.3-1">A OO-LD Schema document, is a JSON document used to describe an instance. A OO-LD schema <span class="bcp14">SHOULD</span> always be given the media type <code>application/oold-schema+json</code> rather than <code>application/oold-schema-instance+json</code>. The <code>application/oold-schema+json</code> media type is defined to offer a superset of the fragment identifier syntax and semantics provided by <code>application/oold-schema-instance+json</code>.
+A OO-LD Schema document <span class="bcp14">SHOULD</span> contain a <code>@context</code> keyword, pointing to a valid JSON-LD context definition according to <span>[<a href="#JSONLD" class="cite xref">JSONLD</a>]</span><a href="#section-2.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1348,6 +1349,10 @@ specified for the <code>application/json</code> media type. See <span><a href="#
 <a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
         </h3>
 <dl class="references">
+<dt id="JSONLD">[JSONLD]</dt>
+        <dd>
+<span class="refTitle">"JSON-LD 1.1"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.w3.org/TR/2020/REC-json-ld11-20200716/">https://www.w3.org/TR/2020/REC-json-ld11-20200716/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC2119">[RFC2119]</dt>
         <dd>
 <span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>&gt;</span>. </dd>
