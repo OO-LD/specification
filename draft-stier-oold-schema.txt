@@ -88,7 +88,7 @@ Table of Contents
    A minimal example: ~~~ json { "@context": { "schema":
    "http://schema.org/", "name": "schema:name" }, "title": "Person",
    "type": "object", "properties": { "name": { "type": "string",
-   "description": "First and Last name", } } } ~~~
+   "description": "First and Last name" } } } ~~~
 
    Please note that *OO-LD schema documents MUST not be interpreted as
    JSON-LD documents* because this would apply @context on the schema
