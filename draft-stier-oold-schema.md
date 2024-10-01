@@ -136,7 +136,7 @@ Servers MUST ensure that malicious parties cannot change the functionality of
 existing schemas by uploading a schema with a pre-existing or very similar
 `$id`.
 
-Individual JSON Schema extensions are liable to also have their own security
+Individual OO-LD Schema extensions are liable to also have their own security
 considerations. Consult the respective specifications for more information.
 
 Schema authors should take care with `$comment` contents, as a malicious
@@ -170,7 +170,7 @@ Fragment identifier considerations:: TODO
 
 ## `application/oold-schema-instance+json`
 
-The proposed MIME media type for JSON Schema Instances that require a JSON
+The proposed MIME media type for OO-LD Schema Instances that require a JSON
 Schema-specific media type is defined as follows:
 
 Type name:: application
