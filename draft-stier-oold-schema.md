@@ -72,7 +72,7 @@ A minimal example:
 
 Please note that **OO-LD schema documents MUST not be interpreted as JSON-LD documents** because this would apply `@context` on the schema itself. The motivation behind this is to have a single document so schemas can be aggregated using both the JSON-SCHEMA `$ref` and the JSON-LD remote `@context` pointing the same resource.
 
-~~~mermaid
+~~~text
 %%{init: {'theme': 'neutral' } }%%
 classDiagram
     class OOLD_Class_A {
