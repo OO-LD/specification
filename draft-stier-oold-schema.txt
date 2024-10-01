@@ -86,7 +86,7 @@ Table of Contents
    string-IRI fields based e.g. on a SPARQL backend, SHACL shape or
    JSON-LD frame generation).
 
-   A minimal example: ~~~json { "@context": { "schema":
+   A minimal example: ~~~ json { "@context": { "schema":
    "http://schema.org/", "name": "schema:name" }, "title": "Person",
    "type": "object", "properties": { "name": { "type": "string",
    "description": "First and Last name", } } } ~~~
