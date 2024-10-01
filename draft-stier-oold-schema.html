@@ -1159,27 +1159,17 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
             <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-references" class="internal xref">References</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1">
-                <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="auto internal xref">5.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1.2.1">
-                    <p id="section-toc.1-1.5.2.1.2.1.1"><a href="#section-5.1.1" class="auto internal xref">5.1.1</a>.  <a href="#name-rfc8259" class="internal xref">[RFC8259]</a></p>
-</li>
-                </ul>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2">
-                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="auto internal xref">5.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2.2.1">
-                    <p id="section-toc.1-1.5.2.2.2.1.1"><a href="#section-5.2.1" class="auto internal xref">5.2.1</a>.  <a href="#name-rfc7049" class="internal xref">[RFC7049]</a></p>
-</li>
-                </ul>
-</li>
-            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-normative-references-2" class="internal xref">Normative References</a></p>
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-references-2" class="internal xref">References</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.1">
+                <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="auto internal xref">6.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.2">
+                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="auto internal xref">6.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
             <p id="section-toc.1-1.7.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
@@ -1198,7 +1188,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
       </h2>
 <p id="section-1-1">The core idea is that an OO-LD document is always both a valid JSON-SCHEMA and a JSON-LD remote context ( != JSON-LD document). In this way a complete OO-LD class / schema hierarchy is consumeable by JSON-SCHEMA-only and JSON-LD-only tools while OO-LD aware tools can provide extended features on top (e.g. UI autocomplete dropdowns for string-IRI fields based e.g. on a SPARQL backend, SHACL shape or JSON-LD frame generation).<a href="#section-1-1" class="pilcrow">¶</a></p>
 <p id="section-1-2">A minimal example:
-<code>json
+~~~json
 {
   "@context": {
     "schema": "http://schema.org/",
@@ -1213,37 +1203,37 @@ svg :is([fill="white"], [fill^="#fff"]) {
     }
   }
 }
-</code><a href="#section-1-2" class="pilcrow">¶</a></p>
+~~~<a href="#section-1-2" class="pilcrow">¶</a></p>
 <p id="section-1-3">Please note that <strong>OO-LD schema documents <span class="bcp14">MUST</span> not be interpreted as JSON-LD documents</strong> because this would apply <code>@context</code> on the schema itself. The motivation behind this is to have a single document so schemas can be aggregated using both the JSON-SCHEMA <code>$ref</code> and the JSON-LD remote <code>@context</code> pointing the same resource.<a href="#section-1-3" class="pilcrow">¶</a></p>
-<p id="section-1-4">```mermaid
+<div class="lang-text sourcecode" id="section-1-4">
+<pre>
 %%{init: {'theme': 'neutral' } }%%
 classDiagram
     class OOLD_Class_A {
         JSON-SCHEMA + JSON-LD
         @context: ...
         properties: a...
-    }<a href="#section-1-4" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-1-5">
-<pre>
-class OOLD_Class_B {
-    JSON-SCHEMA + JSON-LD
-    @context: ./A
-    allOf: ./A
-    properties: b...
-}
+    }
 
-class OOLD_Instance_B {
-    JSON
-    @context: ./B
-    $schema: ./B
-    a: ...
-    b: ...
-}
+    class OOLD_Class_B {
+        JSON-SCHEMA + JSON-LD
+        @context: ./A
+        allOf: ./A
+        properties: b...
+    }
 
-OOLD_Class_A &lt;-- OOLD_Class_B: extends
+    class OOLD_Instance_B {
+        JSON
+        @context: ./B
+        $schema: ./B
+        a: ...
+        b: ...
+    }
 
-OOLD_Class_B &lt;-- OOLD_Instance_B: type ```
-</pre><a href="#section-1-5" class="pilcrow">¶</a>
+    OOLD_Class_A &lt;-- OOLD_Class_B: extends
+
+    OOLD_Class_B &lt;-- OOLD_Instance_B: type
+</pre><a href="#section-1-4" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
@@ -1262,7 +1252,7 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
 <a href="#section-2.1" class="section-number selfRef">2.1. </a><a href="#name-json-document" class="section-name selfRef">JSON Document</a>
         </h3>
 <p id="section-2.1-1">A JSON document is an information resource (series of octets) described by the application/json media type.
-OO-LD Schema is only defined over JSON documents. However, any document or memory structure that can be parsed into or processed according to the JSON Schema data model can be interpreted against a OO-LD Schema, including media types like <span><a href="#rfc7049" class="internal xref">CBOR</a> (<a href="#rfc7049" class="auto internal xref">Section 5.2.1</a>)</span>.<a href="#section-2.1-1" class="pilcrow">¶</a></p>
+OO-LD Schema is only defined over JSON documents. However, any document or memory structure that can be parsed into or processed according to the JSON Schema data model can be interpreted against a OO-LD Schema, including media types like <span><a href="#RFC7049" class="internal xref">CBOR</a> [<a href="#RFC7049" class="cite xref">RFC7049</a>]</span>.<a href="#section-2.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="instance-document">
@@ -1289,7 +1279,7 @@ OO-LD Schema is only defined over JSON documents. However, any document or memor
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
 <p id="section-3-1">Both schemas and instances are JSON values. As such, all security considerations
-defined in <span><a href="#rfc8259" class="internal xref">RFC 8259</a> (<a href="#rfc8259" class="auto internal xref">Section 5.1.1</a>)</span> apply.<a href="#section-3-1" class="pilcrow">¶</a></p>
+defined in <span><a href="#RFC8259" class="internal xref">RFC 8259</a> [<a href="#RFC8259" class="cite xref">RFC8259</a>]</span> apply.<a href="#section-3-1" class="pilcrow">¶</a></p>
 <p id="section-3-2">Instances and schemas are both frequently written by untrusted third parties, to
 be deployed on public Internet servers. Implementations should take care that
 the parsing and evaluating against schemas does not consume excessive system
@@ -1300,7 +1290,7 @@ excessive consumption of system resources in such a scenario.<a href="#section-3
 <p id="section-3-4">Servers <span class="bcp14">MUST</span> ensure that malicious parties cannot change the functionality of
 existing schemas by uploading a schema with a pre-existing or very similar
 <code>$id</code>.<a href="#section-3-4" class="pilcrow">¶</a></p>
-<p id="section-3-5">Individual JSON Schema extensions are liable to also have their own security
+<p id="section-3-5">Individual OO-LD Schema extensions are liable to also have their own security
 considerations. Consult the respective specifications for more information.<a href="#section-3-5" class="pilcrow">¶</a></p>
 <p id="section-3-6">Schema authors should take care with <code>$comment</code> contents, as a malicious
 implementation can display them to end-users in violation of a spec, or fail to
@@ -1325,7 +1315,7 @@ action based on <code>$comment</code> contents.<a href="#section-3-7" class="pil
 <p id="section-4.1-3">Subtype name:: oold-schema+json<a href="#section-4.1-3" class="pilcrow">¶</a></p>
 <p id="section-4.1-4">Required parameters:: N/A<a href="#section-4.1-4" class="pilcrow">¶</a></p>
 <p id="section-4.1-5">Encoding considerations:: Encoding considerations are identical to those
-specified for the <code>application/json</code> media type. See <span><a href="#rfc8259" class="internal xref">JSON</a> (<a href="#rfc8259" class="auto internal xref">Section 5.1.1</a>)</span>.<a href="#section-4.1-5" class="pilcrow">¶</a></p>
+specified for the <code>application/json</code> media type. See <span><a href="#RFC8259" class="internal xref">JSON</a> [<a href="#RFC8259" class="cite xref">RFC8259</a>]</span>.<a href="#section-4.1-5" class="pilcrow">¶</a></p>
 <p id="section-4.1-6">Security considerations:: See <a href="#security" class="auto internal xref">Section 3</a> above.<a href="#section-4.1-6" class="pilcrow">¶</a></p>
 <p id="section-4.1-7">Interoperability considerations:: TODO<a href="#section-4.1-7" class="pilcrow">¶</a></p>
 <p id="section-4.1-8">Fragment identifier considerations:: TODO<a href="#section-4.1-8" class="pilcrow">¶</a></p>
@@ -1336,13 +1326,13 @@ specified for the <code>application/json</code> media type. See <span><a href="#
         <h3 id="name-application-oold-schema-ins">
 <a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-application-oold-schema-ins" class="section-name selfRef"><code>application/oold-schema-instance+json</code></a>
         </h3>
-<p id="section-4.2-1">The proposed MIME media type for JSON Schema Instances that require a JSON
+<p id="section-4.2-1">The proposed MIME media type for OO-LD Schema Instances that require a JSON
 Schema-specific media type is defined as follows:<a href="#section-4.2-1" class="pilcrow">¶</a></p>
 <p id="section-4.2-2">Type name:: application<a href="#section-4.2-2" class="pilcrow">¶</a></p>
 <p id="section-4.2-3">Subtype name:: oold-schema-instance+json<a href="#section-4.2-3" class="pilcrow">¶</a></p>
 <p id="section-4.2-4">Required parameters:: N/A<a href="#section-4.2-4" class="pilcrow">¶</a></p>
 <p id="section-4.2-5">Encoding considerations:: Encoding considerations are identical to those
-specified for the <code>application/json</code> media type. See <span><a href="#rfc8259" class="internal xref">JSON</a> (<a href="#rfc8259" class="auto internal xref">Section 5.1.1</a>)</span>.<a href="#section-4.2-5" class="pilcrow">¶</a></p>
+specified for the <code>application/json</code> media type. See <span><a href="#RFC8259" class="internal xref">JSON</a> [<a href="#RFC8259" class="cite xref">RFC8259</a>]</span>.<a href="#section-4.2-5" class="pilcrow">¶</a></p>
 <p id="section-4.2-6">Security considerations:: See <a href="#security" class="auto internal xref">Section 3</a> above.<a href="#section-4.2-6" class="pilcrow">¶</a></p>
 <p id="section-4.2-7">Interoperability considerations:: TODO<a href="#section-4.2-7" class="pilcrow">¶</a></p>
 <p id="section-4.2-8">Fragment identifier considerations:: TODO<a href="#section-4.2-8" class="pilcrow">¶</a></p>
@@ -1354,58 +1344,48 @@ specified for the <code>application/json</code> media type. See <span><a href="#
 <section id="section-5">
       <h2 id="name-references">
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-references" class="section-name selfRef">References</a>
-      </h2>
-<div id="normative-references">
-<section id="section-5.1">
-        <h3 id="name-normative-references">
-<a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
-        </h3>
-<div id="rfc8259">
-<section id="section-5.1.1">
-          <h4 id="name-rfc8259">
-<a href="#section-5.1.1" class="section-number selfRef">5.1.1. </a><a href="#name-rfc8259" class="section-name selfRef">[RFC8259]</a>
-          </h4>
-<p id="section-5.1.1-1">Bray, T., Ed., "The JavaScript Object Notation (JSON) Data Interchange Format",
-STD 90, RFC 8259, DOI 10.17487/RFC8259,                December 2017,
-&lt;&lt;https://www.rfc-editor.org/info/rfc8259&gt;&gt;.<a href="#section-5.1.1-1" class="pilcrow">¶</a></p>
+    </h2>
 </section>
 </div>
-</section>
-</div>
-<div id="informative-references">
-<section id="section-5.2">
-        <h3 id="name-informative-references">
-<a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
-        </h3>
-<div id="rfc7049">
-<section id="section-5.2.1">
-          <h4 id="name-rfc7049">
-<a href="#section-5.2.1" class="section-number selfRef">5.2.1. </a><a href="#name-rfc7049" class="section-name selfRef">[RFC7049]</a>
-          </h4>
-<p id="section-5.2.1-1">Bormann, C. and P. Hoffman, "Concise Binary Object Representation (CBOR)", RFC
-7049, DOI 10.17487/RFC7049,  October 2013,
-&lt;&lt;https://www.rfc-editor.org/info/rfc7049&gt;&gt;.<a href="#section-5.2.1-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-</section>
-</div>
-</section>
-</div>
-<div id="sec-normative-references">
+<div id="sec-combined-references">
 <section id="section-6">
-      <h2 id="name-normative-references-2">
-<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-normative-references-2" class="section-name selfRef">Normative References</a>
+      <h2 id="name-references-2">
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-references-2" class="section-name selfRef">References</a>
       </h2>
+<div id="sec-normative-references">
+<section id="section-6.1">
+        <h3 id="name-normative-references">
+<a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+        </h3>
 <dl class="references">
 <dt id="RFC2119">[RFC2119]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8174">[RFC8174]</dt>
-    <dd>
+        <dd>
 <span class="refAuthor">Leiba, B.</span>, <span class="refTitle">"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 8174</span>, <span class="seriesInfo">DOI 10.17487/RFC8174</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>&gt;</span>. </dd>
 <dd class="break"></dd>
+<dt id="RFC8259">[RFC8259]</dt>
+      <dd>
+<span class="refAuthor">Bray, T., Ed.</span>, <span class="refTitle">"The JavaScript Object Notation (JSON) Data Interchange Format"</span>, <span class="seriesInfo">STD 90</span>, <span class="seriesInfo">RFC 8259</span>, <span class="seriesInfo">DOI 10.17487/RFC8259</span>, <time datetime="2017-12" class="refDate">December 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8259">https://www.rfc-editor.org/rfc/rfc8259</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 </dl>
+</section>
+</div>
+<div id="sec-informative-references">
+<section id="section-6.2">
+        <h3 id="name-informative-references">
+<a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+        </h3>
+<dl class="references">
+<dt id="RFC7049">[RFC7049]</dt>
+      <dd>
+<span class="refAuthor">Bormann, C.</span> and <span class="refAuthor">P. Hoffman</span>, <span class="refTitle">"Concise Binary Object Representation (CBOR)"</span>, <span class="seriesInfo">RFC 7049</span>, <span class="seriesInfo">DOI 10.17487/RFC7049</span>, <time datetime="2013-10" class="refDate">October 2013</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7049">https://www.rfc-editor.org/rfc/rfc7049</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+</dl>
+</section>
+</div>
 </section>
 </div>
 <div id="acknowledgments">

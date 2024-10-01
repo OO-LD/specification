@@ -70,11 +70,9 @@ Table of Contents
      4.1.  application/oold-schema+json
      4.2.  application/oold-schema-instance+json
    5.  References
-     5.1.  Normative References
-       5.1.1.  [RFC8259]
-     5.2.  Informative References
-       5.2.1.  [RFC7049]
-   6.  Normative References
+   6.  References
+     6.1.  Normative References
+     6.2.  Informative References
    Acknowledgments
    Author's Address
 
@@ -88,10 +86,10 @@ Table of Contents
    string-IRI fields based e.g. on a SPARQL backend, SHACL shape or
    JSON-LD frame generation).
 
-   A minimal example: json { "@context": { "schema":
+   A minimal example: ~~~json { "@context": { "schema":
    "http://schema.org/", "name": "schema:name" }, "title": "Person",
    "type": "object", "properties": { "name": { "type": "string",
-   "description": "First and Last name", } } }
+   "description": "First and Last name", } } } ~~~
 
    Please note that *OO-LD schema documents MUST not be interpreted as
    JSON-LD documents* because this would apply @context on the schema
@@ -99,28 +97,32 @@ Table of Contents
    schemas can be aggregated using both the JSON-SCHEMA $ref and the
    JSON-LD remote @context pointing the same resource.
 
-   ```mermaid %%{init: {'theme': 'neutral' } }%% classDiagram class
-   OOLD_Class_A { JSON-SCHEMA + JSON-LD @context: ...  properties: a...
-   }
+   %%{init: {'theme': 'neutral' } }%%
+   classDiagram
+       class OOLD_Class_A {
+           JSON-SCHEMA + JSON-LD
+           @context: ...
+           properties: a...
+       }
 
-   class OOLD_Class_B {
-       JSON-SCHEMA + JSON-LD
-       @context: ./A
-       allOf: ./A
-       properties: b...
-   }
+       class OOLD_Class_B {
+           JSON-SCHEMA + JSON-LD
+           @context: ./A
+           allOf: ./A
+           properties: b...
+       }
 
-   class OOLD_Instance_B {
-       JSON
-       @context: ./B
-       $schema: ./B
-       a: ...
-       b: ...
-   }
+       class OOLD_Instance_B {
+           JSON
+           @context: ./B
+           $schema: ./B
+           a: ...
+           b: ...
+       }
 
-   OOLD_Class_A <-- OOLD_Class_B: extends
+       OOLD_Class_A <-- OOLD_Class_B: extends
 
-   OOLD_Class_B <-- OOLD_Instance_B: type ```
+       OOLD_Class_B <-- OOLD_Instance_B: type
 
 2.  Conventions and Definitions
 
@@ -137,7 +139,7 @@ Table of Contents
    defined over JSON documents.  However, any document or memory
    structure that can be parsed into or processed according to the JSON
    Schema data model can be interpreted against a OO-LD Schema,
-   including media types like CBOR (Section 5.2.1).
+   including media types like CBOR [RFC7049].
 
 2.2.  Instance Document
 
@@ -160,7 +162,7 @@ Table of Contents
 3.  Security Considerations
 
    Both schemas and instances are JSON values.  As such, all security
-   considerations defined in RFC 8259 (Section 5.1.1) apply.
+   considerations defined in RFC 8259 [RFC8259] apply.
 
    Instances and schemas are both frequently written by untrusted third
    parties, to be deployed on public Internet servers.  Implementations
@@ -177,7 +179,7 @@ Table of Contents
    functionality of existing schemas by uploading a schema with a pre-
    existing or very similar $id.
 
-   Individual JSON Schema extensions are liable to also have their own
+   Individual OO-LD Schema extensions are liable to also have their own
    security considerations.  Consult the respective specifications for
    more information.
 
@@ -203,7 +205,7 @@ Table of Contents
 
    Encoding considerations:: Encoding considerations are identical to
    those specified for the application/json media type.  See JSON
-   (Section 5.1.1).
+   [RFC8259].
 
    Security considerations:: See Section 3 above.
 
@@ -213,8 +215,8 @@ Table of Contents
 
 4.2.  application/oold-schema-instance+json
 
-   The proposed MIME media type for JSON Schema Instances that require a
-   JSON Schema-specific media type is defined as follows:
+   The proposed MIME media type for OO-LD Schema Instances that require
+   a JSON Schema-specific media type is defined as follows:
 
    Type name:: application
 
@@ -224,7 +226,7 @@ Table of Contents
 
    Encoding considerations:: Encoding considerations are identical to
    those specified for the application/json media type.  See JSON
-   (Section 5.1.1).
+   [RFC8259].
 
    Security considerations:: See Section 3 above.
 
@@ -234,23 +236,9 @@ Table of Contents
 
 5.  References
 
-5.1.  Normative References
+6.  References
 
-5.1.1.  [RFC8259]
-
-   Bray, T., Ed., "The JavaScript Object Notation (JSON) Data
-   Interchange Format", STD 90, RFC 8259, DOI 10.17487/RFC8259, December
-   2017, <<https://www.rfc-editor.org/info/rfc8259>>.
-
-5.2.  Informative References
-
-5.2.1.  [RFC7049]
-
-   Bormann, C. and P.  Hoffman, "Concise Binary Object Representation
-   (CBOR)", RFC 7049, DOI 10.17487/RFC7049, October 2013,
-   <<https://www.rfc-editor.org/info/rfc7049>>.
-
-6.  Normative References
+6.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -260,6 +248,17 @@ Table of Contents
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
+
+   [RFC8259]  Bray, T., Ed., "The JavaScript Object Notation (JSON) Data
+              Interchange Format", STD 90, RFC 8259,
+              DOI 10.17487/RFC8259, December 2017,
+              <https://www.rfc-editor.org/rfc/rfc8259>.
+
+6.2.  Informative References
+
+   [RFC7049]  Bormann, C. and P. Hoffman, "Concise Binary Object
+              Representation (CBOR)", RFC 7049, DOI 10.17487/RFC7049,
+              October 2013, <https://www.rfc-editor.org/rfc/rfc7049>.
 
 Acknowledgments
 
