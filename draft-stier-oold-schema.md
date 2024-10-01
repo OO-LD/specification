@@ -34,8 +34,10 @@ author:
     email: "52674635+simontaurus@users.noreply.github.com"
 
 normative:
+  RFC8259: # JSON
 
 informative:
+  RFC7049: # CBOR
 
 
 --- abstract
@@ -187,23 +189,6 @@ Interoperability considerations:: TODO
 Fragment identifier considerations:: TODO
 
 # References
-
-## Normative References
-
-### [RFC8259] {#rfc8259}
-
-Bray, T., Ed., "The JavaScript Object Notation (JSON) Data Interchange Format",
-STD 90, RFC 8259, DOI 10.17487/RFC8259,                December 2017,
-<<https://www.rfc-editor.org/info/rfc8259>>.
-
-
-## Informative References
-
-### [RFC7049] {#rfc7049}
-
-Bormann, C. and P. Hoffman, "Concise Binary Object Representation (CBOR)", RFC
-7049, DOI 10.17487/RFC7049,  October 2013,
-<<https://www.rfc-editor.org/info/rfc7049>>.
 
 --- back
 
